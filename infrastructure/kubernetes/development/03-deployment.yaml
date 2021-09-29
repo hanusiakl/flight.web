@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: development
+  name: flight-web-app
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: flight-web-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: development
+  name: flight-web-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flight-web-app
+  template:
+    metadata:
+      labels:
+        app: flight-web-app
+    spec:
+      imagePullSecrets:
+        - name: docker-registry-secret
+      containers:
+        - name: flight-web-app
+          image: lehudocker/flight-web-development-app:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - secretRef:
+                name: docker-registry-secret

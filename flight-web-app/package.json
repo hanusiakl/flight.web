@@ -1,10 +1,13 @@
 {
-  "name": "flight-web-app",
+  "name": "flight.web.app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build.production": "ng build --configuration=production --optimization=false",
+    "build.development": "ng build --configuration=development",
+    "build.staging": "ng build --configuration=staging",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

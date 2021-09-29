@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+docker build -t flight-web-development-app --build-arg ENVIRONMENT=development .
+docker tag flight-web-development-app lehudocker/flight-web-development-app
+docker push lehudocker/flight-web-development-app
+
+
+docker build -t flight-web-production-app --build-arg ENVIRONMENT=production .
+docker tag flight-web-production-app lehudocker/flight-web-production-app
+docker push lehudocker/flight-web-production-app
