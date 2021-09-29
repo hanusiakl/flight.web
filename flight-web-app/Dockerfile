@@ -1,5 +1,5 @@
 # Stage 1
-FROM node:14.17.3 as build-step
+FROM trion/ng-cli:12.2.7 as build-step
 ARG ENVIRONMENT=''
 
 RUN mkdir -p /app
