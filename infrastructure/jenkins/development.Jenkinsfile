@@ -30,7 +30,7 @@ podTemplate(
         stage('build: checkout files') {
             container('node14') {
                  git branch: "develop",
-                    url: "https://github.com/hanusiakl/flight.service.git"
+                    url: "https://github.com/hanusiakl/flight.web.git"
             }
         }
         stage('build: install dependencies') {
