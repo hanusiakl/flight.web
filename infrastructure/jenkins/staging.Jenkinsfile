@@ -54,13 +54,6 @@ podTemplate(
         }
 
         stage('test: e2e tests') {
-            container('node14') {
-                try {
-                    sh "cd flight-web-app && npm run test:e2e"
-                } catch(ex) {
-                    currentBuild.result = 'UNSTABLE'
-                }
-            }
         }
 
 		stage('docker image: create') {
